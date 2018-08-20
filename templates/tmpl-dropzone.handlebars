@@ -10,7 +10,7 @@
       <input type="hidden" name="tags" value="{{ tags }}"/>
     </div>
     <div class="dz-message needsclick center">
-      <strong>Drop zip files here or click to upload.</strong>
+      <strong>Drop pdf files here or click to upload.</strong>
     </div>
   </form>
 </div>
@@ -21,7 +21,7 @@
           maxFilesize: 10000,
           uploadMultiple: false,
           addRemoveLinks: true,
-          acceptedFiles: ".zip",
+          acceptedFiles: ".pdf",
           init: function() {
             this.on("complete", function(file) {
               this.removeFile(file);
@@ -32,7 +32,7 @@
               showResult(response[0].callback.response.result_url);
             });
             this.on("error", function(file){
-              if (!file.accepted){alert("File must be a zipfile.");}
+              if (!file.accepted){alert("File must be a pdf file.");}
               this.removeFile(file);
             });
           }
